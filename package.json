@@ -1,0 +1,21 @@
+{
+  "name": "swiggy",
+  "version": "1.0.0",
+  "description": "React based food delivery app",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rushikeshbhavsar20/Swiggy_react_app.git"
+  },
+  "author": "Rushikesh Bhavsar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rushikeshbhavsar20/Swiggy_react_app/issues"
+  },
+  "homepage": "https://github.com/Rushikeshbhavsar20/Swiggy_react_app#readme"
+}
