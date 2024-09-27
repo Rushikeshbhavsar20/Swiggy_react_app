@@ -1,40 +1,25 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-
-
-const Rescard = () =>{
+const Rescard = (props) =>{
    return( 
-
    <div className="res-card">
          <div className="image">
             <img src="https://static.toiimg.com/thumb/msid-66145888,imgsize-116131,width-400,resizemode-4/66145888.jpg"/>
          </div>
-
-
         <div className="rescardinfo">
-            <h1 className="hotelname">Shree Naivedyam</h1>
+            <h1 className="hotelname">{props.resname}</h1>
             <div className="rating">
               <img src="https://www.svgrepo.com/show/526298/star-circle.svg"/>
-              <h1 className="rescard-font">4.4</h1><h1 className="rescard-font">.55-60</h1>
+              <h1 className="rescard-font">{props.resrating}</h1><h1 className="rescard-font">55-60 Mins</h1>
              </div>
              <p className="rescard-font2" >North Indian, Chinese,South Indian <br></br>
                  Chhindwad City.
                </p>
             </div>
-
    </div>
-
    );
-    
 }
-
-
-
-
-
-
-
 const Maincontent = () =>{
     return(
        <div className="mainc">
@@ -44,7 +29,7 @@ const Maincontent = () =>{
            </div>
            <div className="rescardmanager"> 
            <div className="res-container">
-               <Rescard />
+               <Rescard  resname="Baba ka dhabha" resrating="4.5"/>
                <Rescard />
                <Rescard />
                <Rescard />
@@ -58,11 +43,6 @@ const Maincontent = () =>{
 
     );
 }
-
-
-
-
-
 const Header = () =>{
    return(
          <div className="navbar">
@@ -108,9 +88,6 @@ const Header = () =>{
 
    );
 };
-
-
-
 const Applayout =  () =>{
     return ( <div className="app">
               <Header />
@@ -118,12 +95,7 @@ const Applayout =  () =>{
         </div>
   
     );
-    
- 
 }
-
-
-  
 
 const root1 = ReactDOM.createRoot(document.getElementById('root'));
 root1.render(<Applayout />)
