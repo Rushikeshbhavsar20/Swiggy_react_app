@@ -1,7 +1,7 @@
 
 
 export const Rescard = ({resData}) =>{
-   
+ 
     const{ name } = resData.info;
     const{ cloudinaryImageId } = resData.info;
     const{ sla } = resData.info;
