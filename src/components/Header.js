@@ -1,4 +1,13 @@
+import {useState,useEffect} from "react"
+
+
 const Header = () =>{
+   const setdata = () =>{
+      setlogg("logout");
+   }
+    const [logg, setlogg] = useState("login");
+    
+
     return(
           <div className="navbar">
  
@@ -31,6 +40,9 @@ const Header = () =>{
               <div>
               <img/>
               <p>Cart</p>
+              </div>
+              <div>
+             <button className="login" onClick={setdata} >{logg}</button>
               </div>
  
  

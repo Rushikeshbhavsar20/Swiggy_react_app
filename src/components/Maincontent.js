@@ -3,26 +3,40 @@ import {useState,useEffect} from "react"
 
 
 const Maincontent = () =>{
-    
+    const[text,settext] = useState("");
+    const[filterlist,setfilterList] = useState([]);
     const[resList,setresList] = useState([]);
     const ListoffilterRes =  resList.filter((res)=>res.info.avgRating > 4.3);
     const Filter = ()=>{
         setresList(ListoffilterRes);
     };
      
+    const searchRestaurant = ()=>{
+    const listt = resList.filter((res)=>{ return res.info.name.toLowerCase().includes(text)});
+    setfilterList(listt);
+      
+      
+       
+      
+    }
+    
     useEffect(() => {
-     fetchdata();
-      
-      
+       
+            fetchdata();
+     
+   
     }, [])
+  
     
     const fetchdata = async()=>{
-        const clouddata = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const clouddata = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true");
         const json = await clouddata.json();
-        const data = json.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const data = await  json.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        console.log(json);
         
         if (data) {
             setresList(data);
+            setfilterList(data);
         } else {
             console.error("Data not found", json);
             // Handle the case when data is undefined
@@ -36,14 +50,20 @@ const Maincontent = () =>{
     } 
     return(
        <div className="mainc">
-           <div className="search">
+                 <div className="search">
+                  <input type="text" value={text} onChange={(e)=>{ 
+                         settext(e.target.value.toLowerCase());
+                  }} />
+                  <button className="search-btn" onClick={searchRestaurant}>search</button>
+              </div>
+           <div className="filter">
             <button className="filter-btn"  onClick={Filter} >Filter the Restaurant</button>
            </div>
            <div className="rescardmanager"> 
            <div className="res-container"> 
              {  // we cannot define any variable in jsx 
                
-            resList.map(Reasturant => (
+            filterlist.map(Reasturant => (
                      <Rescard resData={Reasturant}/>
                 ))
                   
