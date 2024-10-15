@@ -8,7 +8,8 @@ const Maincontent = () =>{
     const[resList,setresList] = useState([]);
     const ListoffilterRes =  resList.filter((res)=>res.info.avgRating > 4.3);
     const Filter = ()=>{
-        setresList(ListoffilterRes);
+       setfilterList(ListoffilterRes);
+       
     };
      
     const searchRestaurant = ()=>{

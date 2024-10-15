@@ -1,4 +1,5 @@
 import {useState,useEffect} from "react"
+import { Link } from "react-router-dom";
 
 
 const Header = () =>{
@@ -19,27 +20,27 @@ const Header = () =>{
              <div className="right">
               <div>
               <img />
-              <p>Swiggy Corporate</p>
+              <p> <Link to="/about">About</Link> </p>
               </div>
               <div>
               <img/>
-              <p>Search</p>
+              <p> <Link to="">Search</Link></p>
               </div>
               <div>
               <img/>
-              <p>offers</p>
+              <p> <Link to="/offers">offers</Link></p>
               </div>
               <div>
               <img/>
-              <p>Help</p>
+              <p> <Link to="">About</Link></p>
               </div>
               <div>
               <img/>
-              <p>Sign In</p>
+              <p> <Link to="">Help</Link></p>
               </div>
               <div>
               <img/>
-              <p>Cart</p>
+              <p> <Link to="">Sign-in</Link></p>
               </div>
               <div>
              <button className="login" onClick={setdata} >{logg}</button>
