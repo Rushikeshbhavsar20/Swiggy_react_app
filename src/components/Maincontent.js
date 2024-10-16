@@ -7,6 +7,17 @@ const Maincontent = () =>{
     const[filterlist,setfilterList] = useState([]);
     const[resList,setresList] = useState([]);
     const ListoffilterRes =  resList.filter((res)=>res.info.avgRating > 4.3);
+
+    useEffect(() => {
+       
+        fetchdata();
+ 
+
+}, [])
+
+
+
+
     const Filter = ()=>{
        setfilterList(ListoffilterRes);
        
@@ -21,28 +32,30 @@ const Maincontent = () =>{
       
     }
     
-    useEffect(() => {
-       
-            fetchdata();
-     
-   
-    }, [])
-  
-    
+
     const fetchdata = async()=>{
-        const clouddata = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true");
-        const json = await clouddata.json();
-        const data = await  json.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(json);
-        
-        if (data) {
-            setresList(data);
-            setfilterList(data);
-        } else {
-            console.error("Data not found", json);
-            // Handle the case when data is undefined
+        try{
+
+            const clouddata = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true");
+            const json = await clouddata.json();
+            const data = await  json.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            console.log(json);
+             
+            if (data) {
+                setresList(data);
+                setfilterList(data);
+            } else {
+                console.error("Data not found", json);
+                // Handle the case when data is undefined
+            }
+            
+
+        } catch (error) {
+            console.error("Error fetching data", error);
         }
+ 
         
+
 
     }
     //conditonal rendering
