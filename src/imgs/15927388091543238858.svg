@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+
+
+
+
+return (
+    <div className='ResDetail'>
+      <div className='part1'>
+
+       <p>Top Picks</p>
+      <div className='buttons'>
+             <button className='left-btn'>
+             <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+            
+             </button>
+             <button className='right-btn'>
+             <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+             </button>
+      </div>
+
+      </div>
+
+      <div className='card-slider'>
+           <div className='card'>
+               <div>
+                <div className='bottom1'>
+                             <p className='price'>$399</p>
+                             <button className='btn'>ADD</button> 
+               </div>
+   
+             </div>
+           </div>
+           <div className='card'>
+               <div>
+                <div className='bottom1'>
+                <p className='price'>$399</p>
+                             <button className='btn'>ADD</button> 
+                        </div>
+   
+             </div>
+           </div>
+           <div className='card'>
+               <div>
+                <div className='bottom1'>
+                <p className='price'>$399</p>
+                              <button className='btn'>ADD</button> 
+               </div>
+   
+             </div>
+           </div>
+          
+ 
+      </div>
+  
+    </div>
+  )
