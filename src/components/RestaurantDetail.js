@@ -39,7 +39,7 @@ const RestaurantDetail = () => {
      let carousel = [];
      try{   
       text = resdetail?.data?.cards[0]?.card?.card.text|| {};
-      carousel = resdetail?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel || [];
+      carousel = resdetail?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel || [];
       console.log(text);
       console.log(carousel);
       
@@ -97,10 +97,12 @@ const RestaurantDetail = () => {
                 </div>
     
               </div>
+                     
             </div>
+
+            
                 
-                
-                );    
+            );    
                 
                 
                 })  }
@@ -115,7 +117,7 @@ const RestaurantDetail = () => {
             
    
         </div>
-    
+        <div className="divider"></div>
       </div>
     )
 }

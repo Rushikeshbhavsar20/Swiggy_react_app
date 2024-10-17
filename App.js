@@ -12,7 +12,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-
+import Dropdownmenu from "./src/components/Dropdownmenu";
 
 
 const Applayout =  () =>{
@@ -41,7 +41,7 @@ const router =  createBrowserRouter([
             element:<About/>,
         },{
             path:"/restaurant",
-            element:<RestaurantDetail />
+            element:[<RestaurantDetail />, <Dropdownmenu />] 
         }],
     },
 ]);

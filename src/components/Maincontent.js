@@ -7,38 +7,27 @@ const Maincontent = () =>{
     const[filterlist,setfilterList] = useState([]);
     const[resList,setresList] = useState([]);
     const ListoffilterRes =  resList.filter((res)=>res.info.avgRating > 4.3);
-
     useEffect(() => {
-       
         fetchdata();
- 
-
 }, [])
-
-
-
 
     const Filter = ()=>{
        setfilterList(ListoffilterRes);
        
     };
-     
+    
     const searchRestaurant = ()=>{
     const listt = resList.filter((res)=>{ return res.info.name.toLowerCase().includes(text)});
-    setfilterList(listt);
-      
-      
-       
-      
+    setfilterList(listt); 
     }
     
 
     const fetchdata = async()=>{
-        try{
-
+     
+           try{    
             const clouddata = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true");
             const json = await clouddata.json();
-            const data = await  json.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const data = await  json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             console.log(json);
              
             if (data) {
@@ -46,19 +35,13 @@ const Maincontent = () =>{
                 setfilterList(data);
             } else {
                 console.error("Data not found", json);
-                // Handle the case when data is undefined
+              
             }
-            
-
-        } catch (error) {
-            console.error("Error fetching data", error);
-        }
- 
-        
-
-
+           }catch(err){
+            console.log("error");
+           }
     }
-    //conditonal rendering
+ 
     if(resList.length == 0){
         return <p className="shimmer">Loading.................</p>
     } 
@@ -75,20 +58,13 @@ const Maincontent = () =>{
            </div>
            <div className="rescardmanager"> 
            <div className="res-container"> 
-             {  // we cannot define any variable in jsx 
+             {  
                
             filterlist.map(Reasturant => (
                      <Rescard resData={Reasturant}/>
                 ))
-                  
-               
-
             }
-                  
-            
 
-
-             
            </div>
            </div>
        </div>
