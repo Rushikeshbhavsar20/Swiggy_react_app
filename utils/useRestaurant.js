@@ -3,8 +3,11 @@ import { useEffect } from "react";
 
 
 
-const fetchresdata = ()=>{
 
+
+
+
+const fetchresdata = ()=>{
 
     const[resdetail,setresdetail] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -33,7 +36,12 @@ const fetchresdata = ()=>{
       
     }
 
- 
+
+
+     
+
+     return {resdetail,loading,error};
+    
 
 }
 

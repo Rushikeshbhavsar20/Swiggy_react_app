@@ -6,7 +6,7 @@ const Maincontent = () =>{
     const[text,settext] = useState("");
     const[filterlist,setfilterList] = useState([]);
     const[resList,setresList] = useState([]);
-    const ListoffilterRes =  resList.filter((res)=>res.info.avgRating > 4.3);
+    const ListoffilterRes =  filterlist.filter((res)=>res.info.avgRating > 4.3);
     useEffect(() => {
         fetchdata();
 }, [])

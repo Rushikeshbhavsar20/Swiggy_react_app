@@ -1,13 +1,14 @@
-
+    import { useNavigate } from "react-router-dom";
 
 export const Rescard = ({resData}) =>{
- 
+     
     const{ name } = resData.info;
     const{ cloudinaryImageId } = resData.info;
     const{ sla } = resData.info;
     const{ avgRating } = resData.info;
     const{ areaName } = resData.info;
     const{ cuisines} = resData.info;
+
 
    return( 
    <div className="res-card">

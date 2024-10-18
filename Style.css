@@ -141,7 +141,8 @@
     transform: scale(0.93); /* Shrink to 90% */
     
   }
-
+  
+  
   @media screen and (max-width: 761px) and (min-width: 321px) {
 
  

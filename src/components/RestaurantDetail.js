@@ -2,36 +2,33 @@ import fetchresdata from "../../utils/useRestaurant";
 
 
 const RestaurantDetail = () => {
-  
-      const resdetail = fetchresdata();
-
-
      
-     if (loading) return <p className="Loader"> Loading...</p>;
-     if (error) return <p>{error}</p>;
-     let text = "No Data Available"
-     let carousel = [];
-     try{   
-      text = resdetail?.data?.cards[0]?.card?.card.text|| {};
-      carousel = resdetail?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel || [];
-      console.log(text);
-      console.log(carousel);
+      const {resdetail,loading,error} = fetchresdata(); 
+      if (loading) return <p className="Loader"> Loading...</p>;
+      if (error) return <p>{error}</p>;
+      let text = "No Data Available"
+      let carousel = [];
+      try{   
+       text = resdetail?.data?.cards[0]?.card?.card.text|| {};
+       carousel = resdetail?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel || [];
+       console.log(text);
+       console.log(carousel);
+       
+ 
+      }catch(err){
+       setError("failed to get top picks")
+       console.log(err);
+      }
+   
+ 
+ 
+      if (error) return <p>{error}</p>;
+      if (carousel.length === 0) {
+       return <p>No carousel data available.</p>; // Handle empty carousel case
+      }  
+      
       
 
-     }catch(err){
-      setError("failed to get top picks")
-      console.log(err);
-     }
-  
-
-
-     if (error) return <p>{error}</p>;
-     if (carousel.length === 0) {
-      return <p>No carousel data available.</p>; // Handle empty carousel case
-     }  
-     
-     
-     
 
 
      return (
