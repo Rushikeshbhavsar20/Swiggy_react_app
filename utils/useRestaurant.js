@@ -7,8 +7,10 @@ import { useEffect } from "react";
 
 
 
-const fetchresdata = ()=>{
-
+const fetchresdata = (id)=>{
+    const {resid} = id;
+   
+    
     const[resdetail,setresdetail] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -21,7 +23,7 @@ const fetchresdata = ()=>{
     const fetchdata = async() =>{
        try{
         
-       const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.9974533&lng=73.78980229999999&restaurantId=328616&catalog_qa=undefined&submitAction=ENTER")
+       const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.9974533&lng=73.78980229999999&restaurantId=${resid}&catalog_qa=undefined&submitAction=ENTER`);
        const  json = await data.json();
        setresdetail(json);    
        console.log(json);

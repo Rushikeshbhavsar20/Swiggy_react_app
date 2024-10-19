@@ -46,18 +46,18 @@ const Maincontent = () =>{
         return <p className="shimmer">Loading.................</p>
     } 
     return(
-       <div className="mainc">
-                 <div className="search">
-                  <input type="text" value={text} onChange={(e)=>{ 
+       <div className="flex-col">
+            <div className="flex justify-center pt-4 gap-4">
+                  <input type="text" className="border-black border-solid border-2 rounded-md pr-2 h-7" value={text} onChange={(e)=>{ 
                          settext(e.target.value.toLowerCase());
                   }} />
-                  <button className="search-btn" onClick={searchRestaurant}>search</button>
+                  <button className=" text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2 h-7 " onClick={searchRestaurant}>search</button>
               </div>
-           <div className="filter">
-            <button className="filter-btn"  onClick={Filter} >Filter the Restaurant</button>
+           <div className="flex justify-center pt-3 pr-20">
+            <button className=" text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2 h-7 "  onClick={Filter} >Filter the Restaurant</button>
            </div>
-           <div className="rescardmanager"> 
-           <div className="res-container"> 
+           <div className="pl-[12%] pr-[12%] "> 
+           <div className="flex flex-wrap  gap-14 pl-7  "> 
              {  
                
             filterlist.map(Reasturant => (

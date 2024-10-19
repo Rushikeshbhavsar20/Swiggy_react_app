@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 
 const Dropdownmenu = () => {
+  const id = useParams();
+
+  const {resid} = id;
   
+  console.log("id from the dropdownmenu",id);
+  
+
    const[carousel,setcarousel] = useState([]);
    const[recommended,setrecommended]=useState([])
    useEffect(()=>{
@@ -11,7 +18,7 @@ const Dropdownmenu = () => {
 
 
      const  fetchdata = async ()=>{
-       const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.9974533&lng=73.78980229999999&restaurantId=328616&catalog_qa=undefined&submitAction=ENTER")
+       const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.9974533&lng=73.78980229999999&restaurantId=${resid}&catalog_qa=undefined&submitAction=ENTER`)
         const json = await data.json();
         console.log(json);
         

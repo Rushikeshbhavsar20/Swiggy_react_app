@@ -1,4 +1,4 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter,  RouterProvider } from "react-router-dom";
 import Header from "./src/components/Header";
@@ -6,7 +6,7 @@ import Maincontent from "./src/components/Maincontent";
 import Error from "./src/components/Error";
 import { Outlet } from "react-router-dom"; //This will push the element from children array object define in router according to the path i.e for /about it will push about component inplace of outlet
 import Offers from "./src/components/Offers";
-import About from "./src/components/About";
+
 import RestaurantDetail from "./src/components/RestaurantDetail";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -14,6 +14,9 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Dropdownmenu from "./src/components/Dropdownmenu";
 
+
+
+const About = lazy( () =>  import("./src/components/About") );
 
 const Applayout =  () =>{
     return ( <div className="app">
@@ -38,9 +41,9 @@ const router =  createBrowserRouter([
             element:<Offers />,
         },{
             path:"/about",
-            element:<About/>,
+            element: <Suspense fallback={<p className="fallback">Loading</p>}> <About/> </Suspense>,
         },{
-            path:"/restaurant",
+            path:"/restaurant/:resid",
             element:[<RestaurantDetail />, <Dropdownmenu />] 
         }],
     },

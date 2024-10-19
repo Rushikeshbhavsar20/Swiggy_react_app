@@ -1,9 +1,11 @@
 import fetchresdata from "../../utils/useRestaurant";
-
+import { useParams } from "react-router-dom";
 
 const RestaurantDetail = () => {
-     
-      const {resdetail,loading,error} = fetchresdata(); 
+      const id = useParams();
+      console.log("this is id",id);
+      
+      const {resdetail,loading,error} = fetchresdata(id); 
       if (loading) return <p className="Loader"> Loading...</p>;
       if (error) return <p>{error}</p>;
       let text = "No Data Available"
