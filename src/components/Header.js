@@ -10,11 +10,11 @@ const Header = () =>{
     
 
     return(
-          <div className="flex justify-between mt-5 pr-3 pl-3 border-dashed border-4 border-cyan-200  ">
+          <div className="w-full  top-0 left-0 right-0 fixed flex justify-between pt-2 pr-3 pl-3 bg-white h-[80px] z-40 ">
  
-             <div className="flex items-center  ">
-             <img className="w-32" src="https://logos-world.net/wp-content/uploads/2020/11/Swiggy-Logo.png"/>
-             <p>Other</p>
+             <div className="flex items-center ">
+             <img className="w-12 pb-3 transition-all ease-in hover:scale-[1.09] " src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_800,h_800/portal/m/logo_192x192.png"/>
+             <p className="pl-4 ">Other</p>
              <img/>
              </div>
              <div className="flex gap-4  items-center">
@@ -44,7 +44,7 @@ const Header = () =>{
               </div>
               <div>
               </div>
-              <button  onClick={setdata}type="button" class="  text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">{logg}
+              <button  onClick={setdata}type="button" className=" text-white bg-[#ff5200] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">{logg}
               </button>
  
  

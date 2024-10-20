@@ -16,7 +16,7 @@ class About extends React.Component{
       render(){
         console.log("rendered");
         
-        return(  <div className="about">
+        return(  <div className="mt-[120px]">
               <p>This is about page</p>
               <p>count :{this.state.count}</p>
               <button onClick={ ()=>{ this.update() }  }>Button</button>

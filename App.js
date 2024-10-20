@@ -7,6 +7,7 @@ import Error from "./src/components/Error";
 import { Outlet } from "react-router-dom"; //This will push the element from children array object define in router according to the path i.e for /about it will push about component inplace of outlet
 import Offers from "./src/components/Offers";
 
+
 import RestaurantDetail from "./src/components/RestaurantDetail";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -41,10 +42,10 @@ const router =  createBrowserRouter([
             element:<Offers />,
         },{
             path:"/about",
-            element: <Suspense fallback={<p className="fallback">Loading</p>}> <About/> </Suspense>,
+            element: <Suspense fallback={<p className="fallback">Loading</p>}> <About /> </Suspense>,
         },{
             path:"/restaurant/:resid",
-            element:[<RestaurantDetail />, <Dropdownmenu />] 
+            element:[<RestaurantDetail />] 
         }],
     },
 ]);

@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
+
+
+
+
+
+
 export const Rescard = ({resData}) =>{
     const navigate = useNavigate();
     const{ name } = resData.info;
@@ -17,9 +23,9 @@ export const Rescard = ({resData}) =>{
      }
     
    return( 
-   <div className=" pt-2 flex-col w-[230px] h-[272px] flex-none   transition-all ease-in-out hover:scale-[0.85] " onClick={handleClick}>
+   <div className=" pt-2 flex-col w-[230px] h-[272px] flex-none   transition-all ease-in-out hover:z-10 hover:scale-[0.85] z-10 " onClick={handleClick}>
          <div className="w-full h-[132px] ">
-            <img className=" w-full h-full object-center object-cover rounded-[21px]" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId }/>
+            <img className=" w-full h-full object-center object-cover rounded-[21px] " src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId }/>
          </div>
         <div className="rescardinfo">
             <h1 className="text-[18px] font-semibold ">{name}</h1>
