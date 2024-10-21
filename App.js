@@ -45,7 +45,7 @@ const router =  createBrowserRouter([
             element: <Suspense fallback={<p className="fallback">Loading</p>}> <About /> </Suspense>,
         },{
             path:"/restaurant/:resid",
-            element:[<RestaurantDetail />] 
+            element:[<RestaurantDetail />, <Dropdownmenu/>] 
         }],
     },
 ]);
