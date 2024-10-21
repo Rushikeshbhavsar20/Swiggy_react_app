@@ -21,7 +21,7 @@ const RestaurantDetail = () => {
        text = resdetail?.data?.cards[0]?.card?.card.text|| {};
        carousel = resdetail?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel || [];
        console.log(text);
-       console.log(carousel);
+
        
  
       }catch(err){
@@ -33,7 +33,8 @@ const RestaurantDetail = () => {
  
       if (error) return <p>{error}</p>;
       if (carousel.length === 0) {
-       return <p className="mt-[120px]">No carousel data available.</p>; // Handle empty carousel case
+        return(<div></div>);
+        
       }  
       
       
