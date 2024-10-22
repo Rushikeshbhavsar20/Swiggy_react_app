@@ -6,22 +6,22 @@ import Maincontent from "./src/components/Maincontent";
 import Error from "./src/components/Error";
 import { Outlet } from "react-router-dom"; //This will push the element from children array object define in router according to the path i.e for /about it will push about component inplace of outlet
 import Offers from "./src/components/Offers";
-
-
 import RestaurantDetail from "./src/components/RestaurantDetail";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Dropdownmenu from "./src/components/Dropdownmenu";
-
+import Usercontext from "./utils/Usercontext";
 
 
 const About = lazy( () =>  import("./src/components/About") );
-
+//userContext provided to header will be accordig to the value pass and as we have use same context to display main-content it will not channge
 const Applayout =  () =>{
     return ( <div className="app">
+            <Usercontext.Provider value={{loggedUser:"Rushikesh"}} >
               <Header className="Header-component"/>
+              </Usercontext.Provider>  
               <Outlet />   
         </div>
   

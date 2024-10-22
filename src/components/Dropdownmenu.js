@@ -4,9 +4,12 @@ import { NestedItem } from './NestedItem';
 import Mainmenu from './Mainmenu';
 
 const Dropdownmenu = () => {
-
-
-
+    
+   const [showitem, setshowitem] = useState(null)
+   
+   const ExpandItems  = (index)=>{
+      setshowitem(index);
+   }
 
   const id = useParams();
 
@@ -51,7 +54,7 @@ const Dropdownmenu = () => {
       console.log(res);
       return(
 
-        <Mainmenu  key={index} resData={res}  />
+        <Mainmenu  key={index} resData={res} showItem={index == showitem ?  true : false }  ExpandItems={()=> showitem == index ? ExpandItems(null) : ExpandItems(index) }    />
       )
        
   })}

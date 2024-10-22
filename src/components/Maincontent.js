@@ -1,15 +1,15 @@
 import { Rescard } from "./Rescard";
-import {useState,useEffect} from "react"
+import {useState,useEffect, useContext} from "react"
+
+import Usercontext from "../../utils/Usercontext";
 
 
 
-const Rated = (Rescardd)=>{
-
-    
+const Rated = (Rescardd,Rating)=>{
     return(props) =>{
         return(
           <div className="">
-            <h1 className="border-2 border-red-100 border-solid">Highly rated</h1>   
+            <h1 className="border-2 border-red-100 border-solid">{Rating}</h1>   
         
             
             <Rescardd  {...props} />
@@ -23,6 +23,9 @@ const Maincontent = () =>{
     const[filterlist,setfilterList] = useState([]);
     const[resList,setresList] = useState([]);
     const ListoffilterRes =  filterlist.filter((res)=>res.info.avgRating > 4.3);
+    const {RatedRes ,loggedUser} = useContext(Usercontext);
+    
+         
     useEffect(() => {
         fetchdata();
 }, [])
@@ -65,7 +68,7 @@ const Maincontent = () =>{
     
 
   
-     const RescardRated =  Rated(Rescard);
+     const RescardRated =  Rated(Rescard,RatedRes)
     
 
     return(
@@ -83,7 +86,7 @@ const Maincontent = () =>{
            <div className="flex flex-wrap  gap-14 pl-7  "> 
              {  
            
-           filterlist.map(Reasturant => Reasturant.info.avgRating > 4.2 ? <Rescard resData={Reasturant} /> : <RescardRated resData={Reasturant} />  )
+           filterlist.map(Reasturant => Reasturant.info.avgRating > 4.2 ? <Rescard resData={Reasturant} /> : <RescardRated resData={Reasturant}/>  )
 
             }
 

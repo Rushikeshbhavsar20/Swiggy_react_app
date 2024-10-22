@@ -1,13 +1,12 @@
-import {useState,useEffect} from "react"
+import {useState,useEffect, useContext} from "react"
 import { Link } from "react-router-dom";
-
-
+import Usercontext from "../../utils/Usercontext";
 const Header = () =>{
    const setdata = () =>{
       setlogg("logout");
    }
     const [logg, setlogg] = useState("login");
-    
+    const {loggedUser} = useContext(Usercontext);
 
     return(
           <div className="w-full  top-0 left-0 right-0 fixed flex justify-between pt-2 pr-3 pl-3 bg-white h-[80px] z-40 ">
@@ -41,6 +40,10 @@ const Header = () =>{
               <div>
               <img/>
               <p> <Link to="">Sign-in</Link></p>
+              </div>
+              <div>
+              <img/>
+              <p> <Link className="bg-blue-100" to="">{loggedUser}</Link></p>
               </div>
               <div>
               </div>
