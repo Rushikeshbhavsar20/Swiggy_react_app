@@ -1,7 +1,11 @@
 import {useState,useEffect, useContext} from "react"
 import { Link } from "react-router-dom";
 import Usercontext from "../../utils/Usercontext";
+import { useSelector } from "react-redux";
 const Header = () =>{
+
+   const item =   useSelector((state)=>state.mycart.items)
+
    const setdata = () =>{
       setlogg("logout");
    }
@@ -35,7 +39,7 @@ const Header = () =>{
               </div>
               <div>
               <img/>
-              <p> <Link to="">Help</Link></p>
+              <p> <Link to="">Cart-  { item.length == 0 ? (<p> ( Empty )</p>) : (<p>{item.length}</p>) } </Link></p>
               </div>
               <div>
               <img/>

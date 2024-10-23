@@ -1,6 +1,15 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItems } from '../../utils/CartSlice'
 
 export const NestedItem = ({Resdata}) => {
+     
+    const dispatch = useDispatch();
+    const handleClick = ()=>{
+          console.log("add items");
+          dispatch(addItems(Resdata));
+    }
+   
   console.log("this is NEsted items",Resdata)
   return (
     <div className='w-9/12 mx-auto  h-[202px]  '>
@@ -23,7 +32,7 @@ export const NestedItem = ({Resdata}) => {
         </div>
         <div className='flex flex-col'>
            <img className=' mt-[20px] w-[156px] h-[144px] rounded-2xl object-fill' src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${Resdata?.card?.info?.imageId}`} />
-                 <button className='ml-[20px] absolute w-[119px] h-[38px] bg-white text-green-500 font-bold  border-[#ebebec] border-[1.5px] px-[12px] text-[16px] rounded-[5px] cursor-pointer mt-[145px] transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white'>ADD</button> 
+                 <button onClick={handleClick} className='ml-[20px] absolute w-[119px] h-[38px] bg-white text-green-500 font-bold  border-[#ebebec] border-[1.5px] px-[12px] text-[16px] rounded-[5px] cursor-pointer mt-[145px] transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white'>ADD</button> 
         </div>
     </div>
 

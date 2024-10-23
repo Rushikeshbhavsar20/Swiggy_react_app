@@ -13,16 +13,18 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Dropdownmenu from "./src/components/Dropdownmenu";
 import Usercontext from "./utils/Usercontext";
-
-
+import { Provider } from "react-redux";
+import Cartstore from "./utils/CartStore";
 const About = lazy( () =>  import("./src/components/About") );
 //userContext provided to header will be accordig to the value pass and as we have use same context to display main-content it will not channge
 const Applayout =  () =>{
     return ( <div className="app">
+        <Provider  store={Cartstore} >
             <Usercontext.Provider value={{loggedUser:"Rushikesh"}} >
               <Header className="Header-component"/>
               </Usercontext.Provider>  
               <Outlet />   
+        </Provider>
         </div>
   
     );
